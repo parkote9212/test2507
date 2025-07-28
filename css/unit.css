@@ -1,0 +1,24 @@
+#unit1{
+    font-size: 2%;
+}
+#unit2{
+    font-size: 2em;
+}
+#unit3{
+    font-size: 2rem;
+}
+#unit4{
+    font-size: 2vw;
+}
+#unit5{
+    font-size: 2vh;
+}
+#unit6{
+    font-size: 2vmin;
+}
+#unit7{
+    font-size: 2vmax;
+}
+#unit8{
+    font-size: 2px;
+}
