@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body, html{
+        height: 100%;
+        margin: 0;
+        font-family: Arial;
+    }
+    .tablink{
+        background-color: #555;
+        color: white;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 25%;
+    }
+
+    .tablink:hover{
+        background-color: #777;
+    }
+
+    .tabcontent{
+        color: white;
+        display: none;
+        padding: 100px 20px;
+        height: 100%;
+    }
+
+    #Home{background-color: red;}
+    #News{background-color: green;}
+    #Contact{background-color: blue;}
+    #About{background-color: orange;}
+</style>
+</head>
+
+<body>
+    <button class="tablink" onmouseover="openPage('Home',this,'red')">Home</button>
+    <button class="tablink" onmouseover="openPage('News',this,'green')">News</button>
+    <button class="tablink" onmouseover="openPage('Contact',this,'blue')">Contact</button>
+    <button class="tablink" onmouseover="openPage('About',this,'orange')">About</button>
+<div class="tabcontent" id="Home">
+    <h3>Home</h3>
+    <p>Home is where the heart is..</p>
+</div>
+    <div class="tabcontent" id="News">
+    <h3>News</h3>
+    <p>Some news this fine day!</p>
+</div>
+<div class="tabcontent" id="Contact">
+    <h3>Contact</h3>
+    <p>Get in touch, or swing by for a cup of coffee.</p>
+</div>
+<div class="tabcontent" id="About">
+    <h3>About</h3>
+    <p>Who we are and what we do</p>
+</div>
+<script>
+    function openPage(pageName, elmnt, color){
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        console.log(tabcontent.length);
+        for(i=0; i<tabcontent.length;i++){
+            tabcontent[i].style.display = "none";
+        }
+        
+        tablinks = document.getElementsByClassName("tablink");
+        for(i=0; i<tablinks.length;i++){
+            tablinks[i].style.backgroundColor = "";
+        }
+        
+        document.getElementById(pageName).style.display = "block";
+        elmnt.style.backgroundColor = color;
+
+
+    }
+
+</script>
+
+</body>
+
+</html>
