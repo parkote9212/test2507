@@ -67,20 +67,20 @@
         </section>
 
         <section class="contents">
-            <div id="content1">
-                <div class="Tab">
-                    <button class="tablinks" onclik="openCon('ann',this)" id="defaultOpne">공지사항</button>
-                    <button class="tablinks" onclik="openCon('gal',this)">갤러리</button>
-                </div>
-                <div id="ann" class="tabcontent" style="display:block;">
-                    <h3>공지사항</h3>
-                    <p>여기에 공지사항 내용을 넣어주세요.</p>
-                </div>
-                <div id="gal" class="tabcontent" style="display:none;">
-                    <h3>갤러리</h3>
-                    <p>여기에 갤러리 내용을 넣어주세요.</p>
-                </div>
-            </div>
+           <div id="content1">
+    <div class="Tab">
+        <button class="tablinks active" id="tabNews" data-target="#ann">공지사항</button>
+        <button class="tablinks" id="tabGal" data-target="#gal">갤러리</button>
+    </div>
+    <div id="ann" class="tabcontent" style="display:block;">
+        <h3>공지사항</h3>
+        <p>여기에 공지사항 내용을 넣어주세요.</p>
+    </div>
+    <div id="gal" class="tabcontent" style="display:none;">
+        <h3>갤러리</h3>
+        <p>여기에 갤러리 내용을 넣어주세요.</p>
+    </div>
+</div>
             <div id="content2">
                 <h3>배너</h3>
             </div>
@@ -138,20 +138,25 @@
             timer = setInterval(showNextSlide, interval);
         });
 
-        // //탭 콘텐츠
-        // $('.tablinks').click(function () {
-        //     // 모든 탭버튼에서 active 제거
-        //     $('.tablinks').removeClass('active');
-        //     // 클릭한 탭버튼에 active 추가
-        //     $(this).addClass('active');
+    // 탭 콘텐츠 전환
+    $('.tablinks').click(function () {
+        // 1. 모든 탭 버튼에서 'active' 클래스 제거
+        $('.tablinks').removeClass('active');
+        
+        // 2. 클릭된 탭 버튼에만 'active' 클래스 추가
+        $(this).addClass('active');
 
-        //     // 모든 탭내용 숨김
-        //     $('.tabcontent').hide();
+        // 3. 모든 탭 콘텐츠 숨기기
+        $('.tabcontent').hide();
 
-        //     // 클릭한 버튼의 data-target 속성 값에 해당하는 탭내용만 표시
-        //     var target = $(this).data('target');
-        //     $(target).show();
-        // });
+        // 4. 클릭된 탭 버튼의 data-target 값 가져오기
+        var targetContent = $(this).data('target');
+        
+        // 5. 해당 data-target 값을 가진 콘텐츠만 보여주기
+        $(targetContent).show();
+    });
+
+
 
 
     </script>
