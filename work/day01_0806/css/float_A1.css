@@ -1,0 +1,226 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #fff;
+    color: #333;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 헤더, 메뉴 */
+#wrapper {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+#header {
+    height: 100px;
+    background: #f0f0f0;
+}
+
+.logo {
+    float: left;
+    width: 200px;
+    height: 100px;
+    border: 1px solid #000;
+    text-align: center;
+    line-height: 100px;
+}
+
+.nav {
+
+    float: right;
+    width: 500px;
+    height: 50px;
+    margin-top: 40px;
+    margin-right: 20px;
+}
+
+.menu {
+    float: left;
+    width: 25%;
+    position: relative;
+    text-align: center;
+}
+
+.menu>a {
+    display: block;
+    height: 50px;
+    text-decoration: none;
+    color: #333;
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+}
+
+.menu>a:hover {
+    background: #e0e0e0;
+}
+
+/* 드롭다운 서브메뉴 */
+.submenu {
+    display: none;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #ddd;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 10;
+}
+
+.submenu li a {
+
+    display: block;
+    padding: 10px 0;
+    color: #333;
+    text-decoration: none;
+    background: #f0f0f0;
+    border-bottom: 1px solid #eee;
+}
+
+.submenu li a:hover {
+    background: #e0e0e0;
+}
+
+/* 슬라이드, 콘텐츠, 푸터 */
+#slide {
+    width: 100%;
+    height: 300px;
+    background: #e0e0e0;
+    border: 1px solid #000;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.slide-outer {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide-inner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+.slide-inner li {
+    width: 100%;
+    height: 300px;
+    list-style: none;
+}
+
+.slide-inner img {
+    display: block;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.Tab {
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    
+}
+.tablinks {
+    width: 49%;
+    background: #f1f1f1;
+    border: 1px solid #bbb;
+    border-bottom: none;
+    color: #333;
+    padding: 10px 24px;
+    cursor: pointer;
+    font-size: 16px;
+    outline: none;
+    margin: 0px;
+}
+.tablinks:hover {
+    background: #e1e1e1;
+}
+.tablinks.active {
+    background: #fff;
+    border-bottom: 2px solid #fff;
+    color: #1371c1;
+    font-weight: bold;
+}
+
+/* 탭 내용 영역 */
+.tabcontent {
+    height: 100%;
+    border: 1px solid #bbb;
+    border-radius: 0 0 6px 6px;
+    border-top: none;
+    padding: 30px 20px;
+    background: #fff;
+    min-height: 100px;
+}
+
+/* 전체 contents 레이아웃 */
+.contents {
+    overflow: hidden; 
+    width: 1200px;
+}
+
+.contents > div {
+    float: left;
+    width: 400px;
+    height: 250px;
+    text-align: center;
+    border: 1px solid #000;
+    box-sizing: border-box;
+}
+
+/* 구별되는 배경색 영역 */
+#content1 { background: #d8d8d8; }
+#content2 { background: #c8c8c8; }
+#content3 { background: #b8b8b8; }
+
+
+.footer {
+    height: 100px;
+    background: #a8a8a8;
+    clear: both;
+}
+
+#footer_logo,
+#copyright,
+#sns {
+    float: left;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    border: 1px solid #000;
+}
+
+#footer_logo {
+    width: 200px;
+    background: gray;
+}
+
+#copyright {
+    width: 800px;
+    background: lightgray;
+}
+
+#sns {
+    width: 200px;
+    background: darkgray;
+    float: right;
+}
+
+.contents::after,
+.footer::after {
+    content: "";
+    display: block;
+    clear: both;
+}

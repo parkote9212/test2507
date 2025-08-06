@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JUST 쇼핑몰</title>
+    <link rel="stylesheet" href="./css/float_A1.css">
+</head>
+
+<body>
+    <div id="wrapper">
+        <header id="header">
+            <div class="logo">
+                <h2>로고</h2>
+            </div>
+            <nav class="nav">
+                <ul id="menulist">
+                    <li class="menu">
+                        <a href="#">메뉴1</a>
+                        <ul class="submenu">
+                            <li><a href="#">서브메뉴1-1</a></li>
+                            <li><a href="#">서브메뉴1-2</a></li>
+                            <li><a href="#">서브메뉴1-3</a></li>
+                            <li><a href="#">서브메뉴1-4</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu">
+                        <a href="#">메뉴2</a>
+                        <ul class="submenu">
+                            <li><a href="#">서브메뉴2-1</a></li>
+                            <li><a href="#">서브메뉴2-2</a></li>
+                            <li><a href="#">서브메뉴2-3</a></li>
+                            <li><a href="#">서브메뉴2-4</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu">
+                        <a href="#">메뉴3</a>
+                        <ul class="submenu">
+                            <li><a href="#">서브메뉴3-1</a></li>
+                            <li><a href="#">서브메뉴3-2</a></li>
+                            <li><a href="#">서브메뉴3-3</a></li>
+                            <li><a href="#">서브메뉴3-4</a></li>
+                        </ul>
+                    </li>
+                    <li class="menu">
+                        <a href="#">메뉴4</a>
+                        <ul class="submenu">
+                            <li><a href="#">서브메뉴4-1</a></li>
+                            <li><a href="#">서브메뉴4-2</a></li>
+                            <li><a href="#">서브메뉴4-3</a></li>
+                            <li><a href="#">서브메뉴4-4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section id="slide">
+            <div class="slide-outer">
+                <ul class="slide-inner">
+                    <li><img src="./images/bear.jpg" alt="슬라이드1"></li>
+                    <li><img src="./images/bg.jpg" alt="슬라이드2"></li>
+                    <li><img src="./images/guitar-bg.jpg" alt="슬라이드3"></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="contents">
+            <div id="content1">
+                <div class="Tab">
+                    <button class="tablinks" onclik="openCon('ann',this)" id="defaultOpne">공지사항</button>
+                    <button class="tablinks" onclik="openCon('gal',this)">갤러리</button>
+                </div>
+                <div id="ann" class="tabcontent" style="display:block;">
+                    <h3>공지사항</h3>
+                    <p>여기에 공지사항 내용을 넣어주세요.</p>
+                </div>
+                <div id="gal" class="tabcontent" style="display:none;">
+                    <h3>갤러리</h3>
+                    <p>여기에 갤러리 내용을 넣어주세요.</p>
+                </div>
+            </div>
+            <div id="content2">
+                <h3>배너</h3>
+            </div>
+            <div id="content3">
+                <h3>바로가기</h3>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div id="footer_logo">
+                <h3>하단 로고</h3>
+            </div>
+            <div id="copyright">
+                <p>Copyright</p>
+            </div>
+            <div id="sns">
+                <p>SNS</p>
+            </div>
+        </footer>
+    </div>
+    <script src="./jquery-3.7.1.min.js"></script>
+
+    <!-- 메뉴슬라이드 다운 -->
+    <script>
+
+        $(function () {
+            $('.menu').mouseenter(function () {
+                $(this).find('.submenu').stop().slideDown(500);
+            }).mouseleave(function () {
+                $(this).find('.submenu').stop().slideUp(500);
+            });
+        });
+
+        // 이미지슬라이드
+        $(function () {
+            var $slideInner = $('.slide-inner');
+            var $slides = $slideInner.children('li');
+            var slideCount = $slides.length;
+            var slideHeight = $slides.first().outerHeight();
+            var interval = 2500; // 2.5초
+            var timer;
+
+            // ul 높이를 이미지 하나에 맞게 설정 (애니메이션 후 ul 위치만 이동)
+            $slideInner.css({ top: 0, left: 0, position: "absolute" });
+
+            function showNextSlide() {
+                $slideInner.animate({ top: -slideHeight }, 1000, "swing", function () {
+                    // 첫 번째 li를 마지막에 붙이고, top을 0으로 초기화 (무한 롤링)
+                    $slideInner.append($slideInner.children('li').first());
+                    $slideInner.css('top', 0);
+                });
+            }
+
+            // 자동 슬라이드 시작
+            timer = setInterval(showNextSlide, interval);
+        });
+
+        // //탭 콘텐츠
+        // $('.tablinks').click(function () {
+        //     // 모든 탭버튼에서 active 제거
+        //     $('.tablinks').removeClass('active');
+        //     // 클릭한 탭버튼에 active 추가
+        //     $(this).addClass('active');
+
+        //     // 모든 탭내용 숨김
+        //     $('.tabcontent').hide();
+
+        //     // 클릭한 버튼의 data-target 속성 값에 해당하는 탭내용만 표시
+        //     var target = $(this).data('target');
+        //     $(target).show();
+        // });
+
+
+    </script>
+</body>
+
+</html>
